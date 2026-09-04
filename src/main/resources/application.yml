@@ -1,0 +1,89 @@
+spring:
+  application:
+    name: java-backend-api-feature-demo
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:h2:mem:featuredemo;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  security:
+    user:
+      name: demo
+      password: demo
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when_authorized
+
+# JWT stub settings (used only when security.jwt.enabled=true)
+app:
+  security:
+    jwt:
+      enabled: false
+      secret: change-me-to-a-long-random-secret-for-production-use-only
+      expiration-ms: 86400000
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+app:
+  security:
+    jwt:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: jwt
+
+app:
+  security:
+    jwt:
+      enabled: true
+
+---
+# Optional MySQL profile — copy settings from application-mysql.yml.example
+# and run with: ./mvnw spring-boot:run -Dspring-boot.run.profiles=mysql
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/feature_demo?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: change-me
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
