@@ -1,8 +1,8 @@
 # Java Backend API Feature Demo
 
-Hi — I am Md Tanvir Alam ([tanvir-ux](https://github.com/tanvir-ux)). This repo is a **demo Spring Boot skeleton** I put together for the Freelancer brief [Java Backend API Feature Development](https://www.freelancer.com/projects/api-development/Java-Backend-API-Feature-Development/details): a clean REST layout with fetch + submit style endpoints, controller / service / repository layers, JPA, JSON, HTTP status codes, and a couple of JUnit tests.
+**Demo Spring Boot skeleton** aligned with the Freelancer brief [Java Backend API Feature Development](https://www.freelancer.com/projects/api-development/Java-Backend-API-Feature-Development/details): a clean REST layout with fetch + submit style endpoints, controller / service / repository layers, JPA, JSON, HTTP status codes, and a couple of JUnit tests.
 
-It is not the client's production feature. It shows how I structure the work so real tables and rules can map onto the same layers quickly.
+It is not a production feature. It shows a layered structure so real tables and rules can map onto the same packages quickly.
 
 ## What you get
 
@@ -67,7 +67,7 @@ com.tanvir.featuredemo
 
 ## Mapping to a real brief
 
-On a live engagement I would replace `Item` with the client's entities, point the datasource at their MySQL schema, keep the same controller → service → repository split, and add validation / status codes that match their API contract. Auth would move from the Basic/JWT stub to whatever they already use.
+On a live engagement, replace `Item` with the client's entities, point the datasource at their MySQL schema, keep the same controller → service → repository split, and add validation / status codes that match their API contract. Auth would move from the Basic/JWT stub to whatever they already use.
 
 ## Default credentials (local only)
 
@@ -77,6 +77,3 @@ On a live engagement I would replace `Item` with the client's entities, point th
 
 Do not ship these. Turn on real auth for anything beyond a local demo.
 
----
-
-GitHub: [tanvir-ux](https://github.com/tanvir-ux)
